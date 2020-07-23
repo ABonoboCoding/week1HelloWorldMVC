@@ -158,10 +158,10 @@ namespace MvcMovie.Controllers
             return View(movie);
         }
 
-        // POST: Movies/Delete/5
-        [HttpPost, ActionName("Delete")]
+        // POST: Movies/Delete/6
+        [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> Delete(int id, bool notUsed)
         {
             var movie = await _context.Movie.FindAsync(id);
             _context.Movie.Remove(movie);
@@ -173,5 +173,6 @@ namespace MvcMovie.Controllers
         {
             return _context.Movie.Any(e => e.Id == id);
         }
+
     }
 }
